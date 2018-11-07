@@ -29,4 +29,8 @@ render(App);
 
 if (module.hot){
     module.hot.accept('./App', () => render(require('./App').default));
+    module.hot.accept('./reducers', () => {
+        const nextRootReducer = require('./reducers').default
+        store.replaceReducer(nextRootReducer)
+      });
 }
